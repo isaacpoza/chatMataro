@@ -1,0 +1,121 @@
+{
+  "intents": [
+    {
+      "tag": "saludo",
+      "patterns": [
+        "Hola",
+        "Buenos días",
+        "Buenas tardes",
+        "¿Qué tal?",
+        "Hola, ¿estás ahí?"
+      ],
+      "responses": [
+        "¡Hola! ¿Cómo puedo ayudarte?",
+        "¡Buenos días! ¿En qué puedo asistirte?",
+        "¡Hola! ¿Qué necesitas saber?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "despedida",
+      "patterns": [
+        "Adiós",
+        "Hasta luego",
+        "Nos vemos",
+        "Chao",
+        "Gracias, adiós"
+      ],
+      "responses": [
+        "¡Adiós! ¡Que tengas un excelente día!",
+        "Hasta luego, gracias por contactarnos.",
+        "Nos vemos, ¡cuídate!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "detecta_busqueda",
+      "patterns": [
+        "No tengo claro qué destino elegir para mis vacaciones.",
+        "Todavía no he decidido el lugar de vacaciones ni la región donde ir este año.",
+        "Estoy indeciso/a sobre en qué país de destino o ciudad de destino pasar mis vacaciones.",
+        "No sé qué ciudad o región turística elegir para ir de vacaciones.",
+        "Me gustaría irme de vacaciones, pero no sé en qué pueblo o zona debería alojarme.",
+        "Estoy buscando ideas para mi próximo viaje, pero no tengo claro el sitio o provincia a visitar.",
+        "No tengo un destino turístico en mente para mis vacaciones.",
+        "Quiero hacer una escapada, pero no sé a qué comarca o punto de viaje ir.",
+        "Aún no he pensado en ninguna ubicación o región de destino para las vacaciones.",
+        "Me gustaría viajar, pero no sé qué sitio de interés o playa visitar."
+      ],
+      "responses": [
+        "Te vamos a ayudar, buscas una ciudad, región o destino turístico."
+      ],
+      "context_set": "preguntas_destino",
+      "context_filter": ""
+    },
+    {
+      "tag": "preguntar_ciudad",
+      "patterns": [
+        "¿En qué ciudad te gustaría hospedarte?",
+        "¿Tienes una ciudad de destino en mente?",
+        "¿Cuál es tu ciudad de preferencia para el viaje?"
+      ],
+      "responses": [
+        "Por favor, indícame la ciudad donde te gustaría alojarte."
+      ],
+      "context_set": "preguntas_destino",
+      "context_filter": "preguntas_destino"
+    },
+    {
+      "tag": "preguntar_pais",
+      "patterns": [
+        "¿En qué país está tu destino?",
+        "¿Buscas un destino internacional o nacional?",
+        "¿Tienes un país de destino en mente?"
+      ],
+      "responses": [
+        "Este chat ofrece información sobre el maresme, Barcelona, España"
+      ],
+      "context_set": "preguntas_destino",
+      "context_filter": "preguntas_destino"
+    },
+    {
+      "tag": "preguntar_region",
+      "patterns": [
+        "¿En qué región te gustaría pasar tus vacaciones?",
+        "¿Prefieres una región específica?",
+        "¿Buscas algo en una región concreta?"
+      ],
+      "responses": [
+        "Por favor, indícame la región donde te gustaría pasar tus vacaciones."
+      ],
+      "context_set": "preguntas_destino",
+      "context_filter": "preguntas_destino"
+    },
+    {
+      "tag": "preguntar_zona",
+      "patterns": [
+        "¿Te gustaría hospedarte en una zona turística o tranquila?",
+        "¿Tienes alguna zona en mente para tu estancia?",
+        "¿Buscas algo en una zona en particular?"
+      ],
+      "responses": [
+        "Por favor, dime en qué zona te gustaría hospedarte."
+      ],
+      "context_set": "preguntas_destino",
+      "context_filter": "preguntas_destino"
+    },
+    {
+      "tag": "preguntar_destino_turistico",
+      "patterns": [
+        "¿Estás buscando un destino turístico?",
+        "¿Te gustaría estar cerca de un sitio de interés?",
+        "¿Buscas un destino turístico específico?"
+      ],
+      "responses": [
+        "¿Te gustaría que el hotel esté cerca de un destino turístico o sitio de interés?"
+      ],
+      "context_set": "",
+      "context_filter": "preguntas_destino"
+    }
+  ]
+}

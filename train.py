@@ -136,7 +136,7 @@ sgd = SGD(learning_rate=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # Entrenar el modelo
-hist = model.fit(np.array(train_x), np.array(train_y), epochs=400, batch_size=5, verbose=1)
+hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 
 # Guardar el modelo
 model.save('chatbot_model.keras', hist)

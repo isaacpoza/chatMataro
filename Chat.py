@@ -47,7 +47,7 @@ def predict_class(sentence, model):
     logging.info(f"Prediciendo la intención para el mensaje: {sentence}")
     p = bow(sentence, words, show_details=False)
     res = model.predict(np.array([p]))[0]
-    ERROR_THRESHOLD = 0.25
+    ERROR_THRESHOLD = 0
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
@@ -57,22 +57,47 @@ def predict_class(sentence, model):
     return return_list
 
 def getResponse(ints, intents_json, user_id):
-    tag = ints[0]['intent']
+    tag = ints[0]['intent']  # La intención predicha
+    result = ''
     list_of_intents = intents_json['intents']
-    logging.info(f"context_set{contexto_usuario.get(user_id, '')}")
-             
+    
+    # Recorremos las intenciones posibles para encontrar una coincidencia
     for i in list_of_intents:
-        if i['tag'] == tag:
-            if 'context_filter' in i and i['context_filter'] in contexto_usuario.get(user_id, ''):
-                result = random.choice(i['responses'])
-                break
-            if 'context_set' in i:
-                logging.info(f"Ajustando el contexto del usuario {user_id} a: {i['context_set']}")
-                contexto_usuario[user_id] = i['context_set']
+        if i['tag'] == tag:  # Si encontramos una coincidencia con el tag
+            # Verificar si hay un filtro de contexto
+            if 'context_filter' in i:
+                # Si el contexto del usuario coincide, seleccionamos una respuesta
+                #si solo es uno también entra
+                if isinstance(i['context_filter'], list):
+                    for h in i['context_filter']:
+                        if h in contexto_usuario.get(user_id, ''):
+                            result = random.choice(i['responses']) + h
+                            contexto_usuario[user_id] = h  # Actualizamos el contexto
+                            break
+                else:
+                    if contexto_usuario.get(user_id, '') in i['context_filter']:
+                        result = random.choice(i['responses'])
+                        break
             else:
-                contexto_usuario[user_id] = ''  # Si no hay contexto, lo vaciamos
-            result = random.choice(i['responses'])
-            break
+                # Si no hay filtro, verificamos si hay un contexto que ajustar
+                if 'context_set' in i:
+                    logging.info(f"Ajustando el contexto del usuario {user_id} a: {i['context_set']}")
+                    contexto_usuario[user_id] = i['context_set']
+                
+                # Aquí aseguramos que si hay una respuesta, se selecciona en la primera interacción
+                if result == '':
+                    result = random.choice(i['responses'])  # Asignamos una respuesta al result
+
+    
+        # Si no hay contexto previo, elegimos una respuesta predeterminada
+    if result == '':
+         if tag!="salida":
+            result = "No estoy seguro de qué te refieres. ¿Podrías aclarar tu pregunta o intentar con otro tema?"
+        # Verificamos si hay un contexto previo solo si el result sigue vacío
+            if user_id in contexto_usuario and contexto_usuario[user_id]:
+                result = f"Parece que no entendí bien tu pregunta. Antes hablamos sobre {contexto_usuario[user_id]}. ¿Quieres continuar con ese tema?"
+
+
     logging.info(f"Respuesta seleccionada para la intención {tag}: {result}")
     return result
 
@@ -113,7 +138,8 @@ def send():
 
         logging.info("Enviando mensaje al chatbot...")
         res = chatbot_response(msg, user_id="usuario_123")
-        ChatLog.insert(END, "Bot: " + res + '\n\n')
+
+        ChatLog.insert(END, "Bot: " + res+ '\n\n')
 
         ChatLog.config(state=DISABLED)
         ChatLog.yview(END)

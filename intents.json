@@ -1,380 +1,65 @@
 {
-    "intents": [
-      {
-        "tag": "saludo",
-        "patterns": [
-          "Hola",
-          "Buenos días",
-          "Buenas tardes",
-          "¿Qué tal?",
-          "Hola, ¿estás ahí?"
-        ],
-        "responses": [
-          "¡Hola! ¿Cómo puedo ayudarte?",
-          "¡Buenos días! ¿En qué puedo asistirte?",
-          "¡Hola! ¿Qué necesitas saber?"
-        ],
-        "context_set": ""
-      },
-      {
-        "tag": "despedida",
-        "patterns": [
-          "Adiós",
-          "Hasta luego",
-          "Nos vemos",
-          "Chao",
-          "Gracias, adiós"
-        ],
-        "responses": [
-          "¡Adiós! ¡Que tengas un excelente día!",
-          "Hasta luego, gracias por contactarnos.",
-          "Nos vemos, ¡cuídate!"
-        ],
-        "context_set": "salida"
-      },
-
-      {
-        "tag": "buscar_ciudad",
-        "patterns": [
-          "¿En qué ciudad está ubicado el hotel?",
-          "Estoy buscando una ciudad tranquila para mis vacaciones.",
-          "¿Cuáles son las principales ciudades turísticas?"
-        ],
-        "responses": [
-          "Nuestro hotel está en diferentes ciudades. ¿Tienes alguna en mente?",
-          "Te recomiendo algunas ciudades tranquilas para vacacionar, como Santorini o Brujas."
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_pais",
-        "patterns": [
-          "¿Tienen alojamientos en otro país?",
-          "Me gustaría reservar una habitación en un país extranjero.",
-          "¿Qué destinos recomiendan en el país?"
-        ],
-        "responses": [
-          "Ofrecemos alojamientos en varios países. ¿Tienes alguno en mente?",
-          "Te recomiendo destinos como Francia, Italia o Japón para una experiencia inolvidable."
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_ubicacion",
-        "patterns": [
-          "¿Cuál es la ubicación exacta del alojamiento?",
-          "Me interesa un hotel con buena ubicación para hacer turismo.",
-          "Estoy buscando un hotel en una ubicación céntrica."
-        ],
-        "responses": [
-          "El hotel está ubicado en el corazón de la ciudad, cerca de las principales atracciones turísticas.",
-          "Contamos con hoteles en ubicaciones ideales para hacer turismo. ¿Qué tipo de ubicación prefieres?"
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_region",
-        "patterns": [
-          "¿Qué regiones son populares para escapadas?",
-          "Me gustaría saber más sobre la región donde está el hotel.",
-          "Estoy buscando un alojamiento en una región tranquila."
-        ],
-        "responses": [
-          "Algunas de las regiones populares incluyen la Toscana, los Alpes Suizos, y la Riviera Francesa.",
-          "Nuestra región es conocida por su tranquilidad y belleza natural. ¿Te gustaría saber más?"
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_lugar",
-        "patterns": [
-          "Quiero reservar en un lugar cerca de la playa.",
-          "¿Tienen hoteles en algún lugar turístico?",
-          "Busco un lugar especial para unas vacaciones en familia."
-        ],
-        "responses": [
-          "Tenemos opciones de alojamiento cerca de playas espectaculares.",
-          "Te recomiendo algunos destinos turísticos como París, Bali y Nueva York."
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_provincia",
-        "patterns": [
-          "Estoy buscando alojamientos en la provincia.",
-          "¿Qué hoteles tienen en esta provincia?",
-          "Me gustaría una escapada a una provincia cercana."
-        ],
-        "responses": [
-          "Tenemos alojamientos en varias provincias. ¿Te gustaría alguna recomendación en particular?",
-          "Las provincias cercanas a esta región tienen opciones excelentes para una escapada."
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_playa",
-        "patterns": [
-          "¿Tienen habitaciones cerca de la playa?",
-          "Estoy buscando un hotel en primera línea de playa.",
-          "Quiero un alojamiento con vistas a la playa."
-        ],
-        "responses": [
-          "Ofrecemos habitaciones con vistas al mar y en primera línea de playa.",
-          "Te recomendamos destinos como la Costa Amalfitana o la Playa de Cancún."
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "buscar_montana",
-        "patterns": [
-          "¿Qué alojamientos tienen en la montaña?",
-          "Estoy buscando una cabaña en la montaña para mis vacaciones.",
-          "¿Tienen hoteles en áreas de montaña?"
-        ],
-        "responses": [
-          "Tenemos cabañas en destinos de montaña como los Alpes Suizos y los Pirineos.",
-          "Si te gustan las montañas, te recomendaría destinos como el Tirol o la Patagonia."
-        ],
-        "context_set": "preguntas_para_reserva"
-      },
-      {
-        "tag": "reservar_habitacion",
-        "patterns": [
-          "Quiero reservar una habitación",
-          "Me gustaría hacer una reserva",
-          "Necesito reservar una habitación en el hotel"
-        ],
-        "responses": [
-          "Perfecto, ¿para qué fecha te gustaría hacer la reserva?",
-          "Entendido, ¿cuándo te gustaría reservar la habitación?"
-        ],
-        "context_set":"esperando_confirmacion_fecha",
-        "context_filter": "preguntas_para_reserva"
-
-      },
-      {
-        "tag": "confirmar_fecha",
-        "patterns": [
-          "Para el 15 de octubre",
-          "La fecha es el 10 de noviembre",
-          "Quiero reservar para el 20 de septiembre"
-        ],
-        "responses": [
-          "Gracias, ¿cuántas personas serán en la reserva?",
-          "Perfecto, ¿puedes decirme cuántas personas se alojarán?"
-        ],
-        "context_filter":"esperando_confirmacion_fecha",
-        "context_set": "esperando_confirmacion_personas"
-      },
-      {
-        "tag": "confirmar_personas",
-        "patterns": [
-          "Seremos 3 personas",
-          "Somos dos adultos",
-          "Voy con mi familia, somos 4"
-        ],
-        "responses": [
-          "Perfecto, ya tenemos la información. ¿Te gustaría confirmar la reserva?",
-          "Entendido, ya tenemos los detalles. ¿Confirmamos la reserva ahora?"
-        ],
-        "context_filter":"esperando_confirmacion_personas",
-        "context_set": "esperando_confirmar_reserva"
-      },
-      {
-        "tag": "confirmar_reserva",
-        "patterns": [
-          "Sí, confirmar la reserva",
-          "Quiero confirmar la reserva",
-          "Por favor, confirma mi reserva"
-        ],
-        "responses": [
-          "¡Reserva confirmada! Te hemos enviado un correo con los detalles.",
-          "Tu reserva ha sido confirmada. Gracias por elegirnos, te hemos enviado un correo de confirmación."
-        ],
-        "context_filter":"",
-        "context_set": "salida"
-      },
-      {
-        "tag": "preguntar_precio",
-        "patterns": [
-          "¿Cuánto cuesta una habitación?",
-          "Quiero saber el precio de una estancia",
-          "¿Cuál es el costo por noche?"
-        ],
-        "responses": [
-          "Los precios varían según la fecha y tipo de habitación. ¿Para cuándo sería la reserva?",
-          "El costo depende de las fechas y el tipo de alojamiento. ¿Puedes indicarme cuándo planeas quedarte?"
-        ],
-        "context_set": ""
-      },
-      {
-        "tag": "preguntar_comodidades",
-        "patterns": [
-          "¿El hotel tiene Wi-Fi?",
-          "Busco una habitación con piscina",
-          "¿Tienen acceso a la playa?",
-          "Quiero saber si hay aire acondicionado"
-        ],
-        "responses": [
-          "Sí, ofrecemos Wi-Fi gratuito, piscina y acceso a la playa. ¿Te gustaría más información?",
-          "Nuestras habitaciones tienen Wi-Fi, piscina y aire acondicionado. ¿Te gustaría reservar una habitación con estas comodidades?"
-        ],
-        "context_set": ""
-      },
-      {
-        "tag": "requisitos_especiales",
-        "patterns": [
-          "¿Tienen habitaciones accesibles para sillas de ruedas?",
-          "Necesito un cuarto con acceso especial",
-          "Tengo necesidades dietéticas especiales"
-        ],
-        "responses": [
-          "Sí, tenemos habitaciones accesibles y podemos hacer adaptaciones. ¿Te gustaría reservar una?",
-          "Ofrecemos opciones adaptadas para accesibilidad y dietas especiales. ¿Podemos ayudarte con algo más?"
-        ],
-        "context_set": ""
-      },
-      {
-        "tag": "ocio_general",
-        "patterns": [
-          "Estoy buscando actividades de ocio",
-          "Quiero divertirme en mi viaje",
-          "Háblame del ocio en la ciudad"
-        ],
-        "responses": [
-          "¡Perfecto! ¿Te interesa el ocio nocturno, eventos especiales o alguna otra actividad?"
-        ],
-        "context_set": "esperando_actividad_ocio"
-      },
-      {
-        "tag": "ocio_nocturno",
-        "patterns": [
-          "Me interesa el ocio nocturno",
-          "Quiero conocer los bares y discotecas",
-          "¿Qué se puede hacer de noche?"
-        ],
-        "responses": [
-          "Tenemos muchas opciones de ocio nocturno: bares, discotecas y espectáculos en vivo."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "ocio_nocturno"
-      },
-      {
-        "tag": "eventos",
-        "patterns": [
-          "¿Hay eventos importantes?",
-          "Quiero saber si hay algún festival o evento",
-          "¿Qué eventos hay en la ciudad?"
-        ],
-        "responses": [
-          "En la ciudad siempre hay eventos interesantes como conciertos, festivales y ferias."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "eventos"
-      },
-      {
-        "tag": "fiestas",
-        "patterns": [
-          "¿Hay alguna fiesta local?",
-          "¿Cuándo son las fiestas de la ciudad?",
-          "Me gustaría asistir a alguna fiesta popular"
-        ],
-        "responses": [
-          "Las fiestas locales más importantes incluyen el Carnaval, las fiestas de verano y otros eventos populares."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "fiestas"
-      },
-      {
-        "tag": "actividades_maritimas",
-        "patterns": [
-          "¿Qué actividades marítimas puedo hacer?",
-          "Quiero hacer deportes acuáticos",
-          "¿Ofrecen actividades en el mar?"
-        ],
-        "responses": [
-          "Puedes disfrutar de actividades como surf, kayak, y paseos en barco en la costa."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "actividades_maritimas"
-      },
-      {
-        "tag": "parques_tematicos",
-        "patterns": [
-          "¿Hay algún parque temático?",
-          "Me gustaría visitar un parque de atracciones",
-          "Quiero llevar a mi familia a un parque temático"
-        ],
-        "responses": [
-          "Te recomendamos visitar el parque temático local. Es ideal para toda la familia."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "parques_tematicos"
-      },
-      {
-        "tag": "actividades_montana",
-        "patterns": [
-          "¿Qué actividades puedo hacer en la montaña?",
-          "Quiero hacer senderismo o escalada",
-          "¿Hay excursiones a la montaña?"
-        ],
-        "responses": [
-          "Puedes hacer senderismo, escalada y disfrutar de la naturaleza en las montañas cercanas."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "actividades_montana"
-      },
-      {
-        "tag": "ocio_verano",
-        "patterns": [
-          "¿Qué actividades hay en verano?",
-          "Quiero saber qué hacer en verano",
-          "Recomiéndame algo para el verano"
-        ],
-        "responses": [
-          "En verano, puedes disfrutar de las playas, festivales y actividades al aire libre."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "ocio_verano"
-      },
-      {
-        "tag": "ocio_invierno",
-        "patterns": [
-          "¿Qué se puede hacer en invierno?",
-          "¿Qué actividades hay en invierno?",
-          "Recomiéndame algo para hacer en invierno"
-        ],
-        "responses": [
-          "En invierno, puedes disfrutar de deportes de nieve, visitas a museos y eventos navideños."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "ocio_invierno"
-      },
-      {
-        "tag": "ocio_precio",
-        "patterns": [
-          "Quiero actividades baratas",
-          "¿Qué puedo hacer con poco presupuesto?",
-          "¿Hay actividades de ocio económicas?"
-        ],
-        "responses": [
-          "Hay muchas actividades gratuitas o económicas como visitas a parques, museos al aire libre y caminatas."
-        ],
-        "context_filter": "esperando_actividad_ocio",
-        "context_set": "ocio_precio"
-      },
-      {
-        "tag": "París",
-        "patterns": [
-          "Cuéntame sobre París",
-          "¿Qué puedo hacer en París?",
-          "Información general sobre París"
-        ],
-        "responses": [
-          "París es la capital de Francia y uno de los destinos turísticos más visitados del mundo. Es conocida por su cultura, arte, y arquitectura histórica."
-        ],
-        "context_set": ""
-      }
-    ]
-  }
-  
+  "intents": [
+    {
+      "tag": "set_destino",
+      "patterns": ["destino"],
+      "responses": ["ok destino"],
+      "context_set": "destino"
+    },
+    {
+      "tag": "set_producto",
+      "patterns": ["Productos"],
+      "responses": ["ok productos"],
+      "context_set": "producto"
+    },
+    {
+      "tag": "set_informacion",
+      "patterns": ["Información"],
+      "responses": ["ok información"],
+      "context_set": "informacion"
+    },
+    {
+      "tag": "destino_info",
+      "patterns": ["destino información"],
+      "responses": ["destino información ok"],
+      "context_filter": ["destino"]  
+    },
+    {
+      "tag": "destino_precio",
+      "patterns": ["destino precio"],
+      "responses": ["destino precio ok"],
+      "context_filter": "destino"
+    },
+    {
+      "tag": "producto_info",
+      "patterns": ["Producto información"],
+      "responses": ["producto infomración ok"],
+      "context_filter": ["producto"]  
+    },
+    {
+      "tag": "producto_precio",
+      "patterns": ["Producto precio"],
+      "responses": ["Producto precio ok"],
+      "context_filter": "producto"
+    },
+    {
+      "tag": "informacion_general",
+      "patterns": [ "Información general"],
+      "responses": ["Información general ok"],
+      "context_filter": "informacion"
+    },
+    {
+      "tag": "reformulacion",
+      "patterns": ["No entiendo"],
+      "responses": ["intentarlo de nuevo o prefieres cambiar de tema"],
+      "context_filter": ["destino", "producto", "informacion"]  
+    },
+    {
+      "tag": "salida",
+      "patterns": ["Salir"],
+      "responses": ["De acuerdo"],
+      "context_filter": "",
+      "context_set": ""
+    }
+  ]
+}
