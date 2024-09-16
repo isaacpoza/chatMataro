@@ -14,7 +14,7 @@ def get_current_time_in_spain():
 
 # Configuración de la conexión a la base de datos
 #engine = create_engine("mysql+mysqlconnector://flask:flask2024@localhost/mataroin", echo=False)
-engine = create_engine("mysql+mysqlconnector://flask:flask2024@13.60.205.202/mataroin", echo=False)
+#engine = create_engine("mysql+mysqlconnector://flask:flask2024@13.60.205.202/mataroin", echo=False)
 
 # Declarative base
 

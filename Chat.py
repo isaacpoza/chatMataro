@@ -10,6 +10,7 @@ from db_config import SessionLocal
 from tkinter import *
 import random
 import string
+import cargacontenidos
 
 # Definir los caracteres permitidos (letras mayúsculas, minúsculas y dígitos)
 caracteres = string.ascii_letters + string.digits  # ascii_letters incluye mayúsculas y minúsculas
@@ -138,15 +139,14 @@ def reset_user_context(user_id):
 def chatbot_response(user_input, user_id):
     ints = predict_class(user_input)  # Predecir la intención del usuario
     
-    if "París" in user_input or "paris" in user_input:
+    pueblo = cargacontenidos.hayPueblo(user_input)
+    if pueblo is not None:
     # Si el usuario pregunta sobre París, se carga el archivo paris.txt
-        return cargar_descripcion("paris")
+        return pueblo
     else:
         res = getResponse(ints, intents, user_id)
-    return res
-    
-    res = getResponse(ints, intents, user_id)  # Obtener la respuesta basada en la intención y el contexto
-    return res
+        return res
+
 
 def cargar_descripcion(destino):
     try:
