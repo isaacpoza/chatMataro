@@ -1,0 +1,103 @@
+{
+  "intents": [
+    {
+      "tag": "saludo",
+      "patterns": ["Hola"],
+      "responses": ["¡Hola! ¿Cómo puedo ayudarte hoy?"],
+      "context_set": ""
+    },
+    {
+      "tag": "despedida",
+      "patterns": ["Adiós"],
+      "responses": ["¡Hasta luego!"],
+      "context_set": ""
+    },
+    {
+      "tag": "agradecimiento",
+      "patterns": ["Gracias"],
+      "responses": ["¡De nada!"],
+      "context_set": ""
+    },
+    {
+      "tag": "set_destino",
+      "patterns": ["destino"],
+      "responses": ["ok destino"],
+      "context_set": "destino"
+    },
+    {
+      "tag": "set_producto",
+      "patterns": ["Productos"],
+      "responses": ["ok productos"],
+      "context_set": "producto"
+    },
+    {
+      "tag": "set_informacion",
+      "patterns": ["Información"],
+      "responses": ["ok información"],
+      "context_set": "informacion"
+    },
+    {
+      "tag": "destino_info",
+      "patterns": ["destino información"],
+      "responses": ["destino información ok"],
+      "context_filter": ["destino"]  
+    },
+    {
+      "tag": "destino_precio",
+      "patterns": ["destino precio"],
+      "responses": ["destino precio ok"],
+      "context_filter": "destino"
+    },
+    {
+      "tag": "producto_info",
+      "patterns": ["Producto información"],
+      "responses": ["producto infomración ok"],
+      "context_filter": ["producto"]  
+    },
+    {
+      "tag": "producto_precio",
+      "patterns": ["Producto precio"],
+      "responses": ["Producto precio ok"],
+      "context_filter": "producto"
+    },
+
+    {
+      "tag": "set_fecha",
+      "patterns": ["fecha"],
+      "responses": ["¿Cuándo te gustaría viajar?"],
+      "context_filter": "fecha",
+      "context_set":"fecha"
+    },
+    {
+      "tag": "confirmar_fecha",
+      "patterns": ["el viaje es el 20 de diciembre"],
+      "responses": ["¿Le gustaria reservar en esta fecha?"],
+      "context_filter": "fecha"
+    },
+    {
+      "tag": "consultar_fecha",
+      "patterns": ["fecha reservada"],
+      "responses": ["Tu vuelo está programado para el {fecha}. ¿Te gustaría modificarlo?"],
+      "context_filter": "fecha"
+    },
+    {
+      "tag": "informacion_general",
+      "patterns": [ "Información general"],
+      "responses": ["Información general ok"],
+      "context_filter": "informacion"
+    },
+    {
+      "tag": "reformulacion",
+      "patterns": ["reformula la pregunta"],
+      "responses": ["intentarlo de nuevo o prefieres cambiar de tema"],
+      "context_filter": ["destino", "producto", "informacion", "fecha"]  
+    },
+    {
+      "tag": "salida",
+      "patterns": ["Salir"],
+      "responses": ["De acuerdo"],
+      "context_filter": "",
+      "context_set": ""
+    }
+  ]
+}

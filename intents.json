@@ -1,65 +1,661 @@
 {
   "intents": [
     {
+      "tag": "saludo",
+      "patterns": [
+        "Hola"
+      ],
+      "responses": [
+        "¡Hola! ¿Cómo puedo ayudarte hoy?"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "despedida",
+      "patterns": [
+        "Adiós"
+      ],
+      "responses": [
+        "¡Hasta luego!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "agradecimiento",
+      "patterns": [
+        "Gracias"
+      ],
+      "responses": [
+        "¡De nada!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "reformulacion",
+      "patterns": [
+        "reformula la pregunta"
+      ],
+      "responses": [
+        "intentarlo de nuevo o prefieres cambiar de tema"
+      ],
+      "context_filter": [
+        "destino",
+        "producto",
+        "informacion",
+        "fecha",
+        "ocio",
+        "compra",
+        "precios"
+      ]
+    },
+    {
+      "tag": "salida",
+      "patterns": [
+        "Salir"
+      ],
+      "responses": [
+        "De acuerdo"
+      ],
+      "context_filter": "",
+      "context_set": ""
+    },
+    {
       "tag": "set_destino",
-      "patterns": ["destino"],
-      "responses": ["ok destino"],
+      "patterns": [
+        "Quiero viajar al Maresme",
+        "Mi destino es Barcelona",
+        "Me gustaría viajar a Barcelona",
+        "Quiero ir de viaje a [destino]",
+        "Estoy pensando en visitar [destino]",
+        "Mi destino es [destino]",
+        "Me interesa viajar a [destino]",
+        "¿Cómo llego a Barcelona?",
+        "Tengo planeado un viaje a [destino]",
+        "Mi próximo viaje será a [destino]",
+        "Planeo unas vacaciones en [destino]",
+        "Quiero saber más sobre [destino]"
+      ],
+      "responses": [
+        "¡Perfecto! ¿Te gustaría más información sobre viajes a {destino}?"
+      ],
       "context_set": "destino"
     },
     {
       "tag": "set_producto",
-      "patterns": ["Productos"],
-      "responses": ["ok productos"],
+      "patterns": [
+        "Productos",
+        "Estoy interesado en comprar productos",
+        "¿Qué productos tienes disponibles?",
+        "Quiero ver algunos productos",
+        "Me gustaría saber más sobre los productos",
+        "Quiero información sobre productos",
+        "Enséñame los productos que tienes",
+        "Quiero comprar un producto",
+        "¿Tienes productos en oferta?",
+        "¿Qué tipo de productos vendes?",
+        "Muéstrame los mejores productos"
+      ],
+      "responses": [
+        "ok productos"
+      ],
       "context_set": "producto"
     },
     {
       "tag": "set_informacion",
-      "patterns": ["Información"],
-      "responses": ["ok información"],
+      "patterns": [
+        "Información",
+        "Necesito información sobre algo",
+        "Quiero saber más detalles",
+        "Dame información, por favor",
+        "¿Tienes información sobre esto?",
+        "Me gustaría obtener más información",
+        "Quiero saber más sobre este tema",
+        "Dame datos relevantes, por favor",
+        "Necesito más detalles de esto",
+        "Quiero aprender más sobre esta cuestión",
+        "¿Qué información tienes al respecto?"
+      ],
+      "responses": [
+        "ok información"
+      ],
       "context_set": "informacion"
     },
     {
+      "tag": "set_fecha",
+      "patterns": [
+        "fecha viaje",
+        "mes viaje",
+        "temporada viaje",
+        "Estoy pensando en viajar en [mes]",
+        "¿Cuándo es la mejor fecha para viajar?",
+        "Quiero planear mi viaje para [fecha]",
+        "Mi viaje será el [día] de [mes]",
+        "¿Qué fechas tienes disponibles para viajar?",
+        "Planeo salir en [fecha]",
+        "Quiero saber más sobre fechas de viaje",
+        "Me gustaría viajar en [temporada]",
+        "¿Cuándo puedo viajar?",
+        "¿Tienes fechas libres en [mes]?"
+      ],
+      "responses": [
+        "¿Cuándo te gustaría viajar?"
+      ],
+      "context_set": "fecha"
+    },
+    {
+      "tag": "set_ocio",
+      "patterns": [
+        "Quiero hacer algo divertido en mi viaje",
+        "¿Qué actividades de ocio recomiendas?",
+        "Me interesa el ocio en [destino]",
+        "Quiero información sobre actividades recreativas",
+        "¿Qué puedo hacer en mi tiempo libre?",
+        "Estoy buscando actividades para disfrutar",
+        "¿Qué tipo de ocio hay disponible?",
+        "Quiero saber sobre entretenimiento en [destino]"
+            ],
+      "responses": [
+        "entra en ocio"
+      ],
+      "context_set": "ocio"
+    },
+    {
+      "tag": "set_precios",
+      "patterns": [
+        "Tengo un presupuesto de X",
+        "¿Cuánto cuesta viajar a [destino]?",
+        "Mi presupuesto es de [cantidad]",
+        "Quiero saber el precio de los productos",
+        "¿Qué precios manejas para los viajes?",
+        "Tengo un presupuesto limitado",
+        "¿Cuál es el costo de las actividades?",
+        "Quiero algo económico",
+        "¿Cuánto me costará el viaje?",
+        "¿Qué opciones hay para mi presupuesto?",
+        "Dame una cotización para el viaje"
+      ],
+      "responses": [
+        "Con X, puedo sugerirte algunas opciones. ¿Te interesa?"
+      ],
+      "context_set": "precios"
+    },
+    {
+      "tag": "set_compra",
+      "patterns": [
+        "fecha viaje",
+        "mes viaje",
+        "temporada viaje",
+        "Quiero hacer una compra",
+        "Estoy interesado en comprar algo",
+        "Me gustaría comprar un producto",
+        "Quiero hacer una reserva",
+        "¿Cómo puedo comprar este producto?",
+        "Estoy listo para hacer una compra",
+        "¿Puedo comprar esto ahora?",
+        "Quiero adquirir ese servicio",
+        "Quiero comprar un boleto para viajar",
+        "¿Cómo hago para realizar la compra?"
+      ],
+      "responses": [
+        "Iniciar el proceso de compra?"
+      ],
+      "context_set": "compra"
+    },
+    {
       "tag": "destino_info",
-      "patterns": ["destino información"],
-      "responses": ["destino información ok"],
-      "context_filter": ["destino"]  
+      "patterns": [
+        "destino información"
+      ],
+      "responses": [
+        "destino información ok"
+      ],
+      "context_filter": [
+        "destino"
+      ]
     },
     {
       "tag": "destino_precio",
-      "patterns": ["destino precio"],
-      "responses": ["destino precio ok"],
+      "patterns": [
+        "destino precio"
+      ],
+      "responses": [
+        "destino precio ok"
+      ],
       "context_filter": "destino"
     },
     {
       "tag": "producto_info",
-      "patterns": ["Producto información"],
-      "responses": ["producto infomración ok"],
-      "context_filter": ["producto"]  
+      "patterns": [
+        "Producto información"
+      ],
+      "responses": [
+        "producto infomración ok"
+      ],
+      "context_filter": [
+        "producto"
+      ]
     },
     {
       "tag": "producto_precio",
-      "patterns": ["Producto precio"],
-      "responses": ["Producto precio ok"],
+      "patterns": [
+        "Producto precio"
+      ],
+      "responses": [
+        "Producto precio ok"
+      ],
       "context_filter": "producto"
     },
     {
-      "tag": "informacion_general",
-      "patterns": [ "Información general"],
-      "responses": ["Información general ok"],
-      "context_filter": "informacion"
+      "tag": "fecha_confirmar",
+      "patterns": [
+        "el viaje es el 20 de diciembre"
+      ],
+      "responses": [
+        "¿Le gustaria reservar en esta fecha?"
+      ],
+      "context_filter": "fecha"
     },
     {
-      "tag": "reformulacion",
-      "patterns": ["No entiendo"],
-      "responses": ["intentarlo de nuevo o prefieres cambiar de tema"],
-      "context_filter": ["destino", "producto", "informacion"]  
+      "tag": "fecha_consultar",
+      "patterns": [
+        "fecha reservada"
+      ],
+      "responses": [
+        "Tu vuelo está programado para el {fecha}. ¿Te gustaría modificarlo?"
+      ],
+      "context_filter": "fecha"
     },
     {
-      "tag": "salida",
-      "patterns": ["Salir"],
-      "responses": ["De acuerdo"],
-      "context_filter": "",
-      "context_set": ""
-    }
+      "tag": "precio_hotel",
+      "patterns": [
+        "¿Cuánto cuesta una habitación?"
+      ],
+      "responses": [
+        "Depende de la fecha y tipo. ¿Tienes fechas en mente?"
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_ocio",
+      "patterns": [
+        "Quiero actividades baratas"
+      ],
+      "responses": [
+        "Hay actividades gratis como museos y parques."
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_vuelo",
+      "patterns": [
+        "¿Cuánto cuesta un vuelo?"
+      ],
+      "responses": [
+        "Depende de la fecha y destino. ¿Tienes algo en mente?"
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_limite",
+      "patterns": [
+        "Tengo un presupuesto limitado"
+      ],
+      "responses": [
+        "Te recomiendo nuestro pack económico. ¿Te interesa?"
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_hotel_economico",
+      "patterns": [
+        "Busco un hotel barato"
+      ],
+      "responses": [
+        "Ofrecemos hoteles económicos. ¿Quieres ver fechas disponibles?"
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_vuelo_economico",
+      "patterns": [
+        "Busco un vuelo barato"
+      ],
+      "responses": [
+        "Tenemos vuelos económicos. ¿Tienes fechas y destino?"
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_ocio_economico",
+      "patterns": [
+        "Busco ocio barato"
+      ],
+      "responses": [
+        "Hay actividades económicas como tours gratuitos."
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "precio_pack_economico",
+      "patterns": [
+        "Quiero un pack de viaje barato"
+      ],
+      "responses": [
+        "Nuestro pack incluye vuelo, hotel y actividades económicas."
+      ],
+      "context_filter": "precios"
+    },
+    {
+      "tag": "compra_hotel",
+      "patterns": [
+        "Quiero reservar un hotel",
+        "Estoy interesado en un hotel",
+        "Me gustaría comprar una estadía en un hotel",
+        "¿Tienes hoteles disponibles?",
+        "Quiero información para reservar un hotel",
+        "Quiero alojarme en un hotel",
+        "¿Puedo reservar un hotel?",
+        "Muéstrame hoteles disponibles",
+        "Estoy buscando un hotel para mi viaje",
+        "¿Qué hoteles recomiendas?"
+      ],
+      "responses": [
+        "Tenemos varias opciones de hoteles disponibles. ¿Te gustaría saber más sobre ellos?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag": "compra_hostal",
+      "patterns": [
+        "Quiero reservar un hostal",
+        "Estoy interesado en un hostal",
+        "Me gustaría comprar una estadía en un hostal",
+        "¿Tienes hostales disponibles?",
+        "Quiero información para reservar un hostal",
+        "Quiero alojarme en un hostal",
+        "¿Puedo reservar un hostal?",
+        "Muéstrame hostales disponibles",
+        "Estoy buscando un hostal para mi viaje",
+        "¿Qué hostales recomiendas?"
+      ],
+      "responses": [
+        "Tenemos varias opciones de hostales económicos. ¿Te gustaría ver más detalles?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag": "compra_apartamento",
+      "patterns": [
+        "Quiero reservar un apartamento",
+        "Estoy interesado en un apartamento",
+        "Me gustaría comprar una estadía en un apartamento",
+        "¿Tienes apartamentos disponibles?",
+        "Quiero información para reservar un apartamento",
+        "Quiero alojarme en un apartamento",
+        "¿Puedo reservar un apartamento?",
+        "Muéstrame apartamentos disponibles",
+        "Estoy buscando un apartamento para mi viaje",
+        "¿Qué apartamentos recomiendas?"
+      ],
+      "responses": [
+        "Tenemos varios apartamentos disponibles para tu estadía. ¿Te gustaría saber más?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag": "compra_camping",
+      "patterns": [
+        "Quiero reservar un camping",
+        "Estoy interesado en un camping",
+        "Me gustaría comprar una estadía en un camping",
+        "¿Tienes campings disponibles?",
+        "Quiero información para reservar un camping",
+        "Quiero alojarme en un camping",
+        "¿Puedo reservar un camping?",
+        "Muéstrame campings disponibles",
+        "Estoy buscando un camping para mi viaje",
+        "¿Qué campings recomiendas?"
+      ],
+      "responses": [
+        "Tenemos varios campings en la naturaleza. ¿Te gustaría ver más detalles?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag": "compra_alojamiento_calidad_baja",
+      "patterns": [
+        "Quiero reservar un alojamiento económico",
+        "Estoy interesado en un alojamiento barato",
+        "Me gustaría comprar una estadía en un alojamiento de calidad baja",
+        "¿Tienes alojamientos económicos disponibles?",
+        "Quiero información para reservar un alojamiento de bajo costo",
+        "Quiero alojarme en un alojamiento económico",
+        "¿Puedo reservar un alojamiento barato?",
+        "Muéstrame alojamientos de bajo costo",
+        "Estoy buscando un alojamiento económico para mi viaje",
+        "¿Qué alojamientos económicos recomiendas?"
+      ],
+      "responses": [
+        "Tenemos alojamientos económicos de calidad baja. ¿Te gustaría ver más opciones?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag": "compra_alojamiento_calidad_media",
+      "patterns": [
+        "Quiero reservar un alojamiento de calidad media",
+        "Estoy interesado en un alojamiento de calidad media",
+        "Me gustaría comprar una estadía en un alojamiento de calidad media",
+        "¿Tienes alojamientos de calidad media disponibles?",
+        "Quiero información para reservar un alojamiento de calidad media",
+        "Quiero alojarme en un alojamiento de calidad media",
+        "¿Puedo reservar un alojamiento de calidad media?",
+        "Muéstrame alojamientos de calidad media",
+        "Estoy buscando un alojamiento de calidad media para mi viaje",
+        "¿Qué alojamientos de calidad media recomiendas?"
+      ],
+      "responses": [
+        "Ofrecemos alojamientos de calidad media que pueden ajustarse a tu viaje. ¿Te gustaría más detalles?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag": "compra_alojamiento_calidad_alta",
+      "patterns": [
+        "Quiero reservar un alojamiento de lujo",
+        "Estoy interesado en un alojamiento de calidad alta",
+        "Me gustaría comprar una estadía en un alojamiento de calidad alta",
+        "¿Tienes alojamientos de lujo disponibles?",
+        "Quiero información para reservar un alojamiento de calidad alta",
+        "Quiero alojarme en un alojamiento de lujo",
+        "¿Puedo reservar un alojamiento de alta calidad?",
+        "Muéstrame alojamientos de calidad alta",
+        "Estoy buscando un alojamiento de lujo para mi viaje",
+        "¿Qué alojamientos de lujo recomiendas?"
+      ],
+      "responses": [
+        "Tenemos alojamientos de alta calidad y lujo disponibles. ¿Te gustaría más información sobre ellos?"
+      ],
+      "context_filter": [
+        "compra"
+      ]
+    },
+    {
+      "tag":"compra_ocio_nocturno",
+      "patterns":[
+      "Me interesa algun local de ocio nocturno",
+      "Hay alguna discoteca cerca del alojamiento?",
+      "Estoy interesado en locales nocturnos que allá por la zona"
+      ],
+      "responses":[
+        "Tenemos varios packs que incluyen alojamiento y salida nocturna."
+            ],
+      "context_filter":"ocio"
+    },
+    {
+      "tag":"compra_ocio_excursiones",
+      "patterns":["Teneis algun alojamiento cerca de la montaña",
+                  "Me interesaria realizar alguna excursion por los alrededores"
+    ],
+      "responses":["Que localidad de montaña te interesa?"
+  ],
+      "context_filter":"compra"
+    },
+    {
+      "tag":"compra_ocio_playa",
+      "patterns":["Me gustaria reservar un hotel cerca de la playa",
+                  "Teneis apartamentos cerca de la playa",
+                  "Estoy buscando actividades maritimas"
+    ],
+      "responses":["Podemos ofrecerte las siguientes poblaciones costeras...",
+                  "Disponemos de actividades maritimas en un pack con alojamiento",
+                  "Depende de la fecha y destino. ¿Tienes algo en mente?"
+  ],
+      "context_filter":"compra"
+  },
+  {
+    "tag": "compra_fecha_mes",
+    "patterns": [
+      "¿Cuál es el mejor mes para viajar?",
+      "¿Qué mes me recomiendas para mi viaje?",
+      "¿En qué mes debería planear mis vacaciones?",
+      "Quiero saber qué mes es ideal para viajar",
+      "¿Cuál es el mes más económico para viajar?",
+      "¿Cuál es el clima en [mes] para viajar?"
+    ],
+    "responses": [
+      "El mejor mes para viajar depende del destino que elijas y de tus preferencias personales. ¿Tienes algún destino específico en mente?"
+    ],
+      "context_filter":"compra"
+  },
+  {
+    "tag": "compra_fecha_finde",
+    "patterns": [
+      "¿Es posible viajar un fin de semana?",
+      "Quiero hacer un viaje corto de fin de semana",
+      "¿Cuáles son las mejores opciones para un viaje de fin de semana?",
+      "Estoy buscando destinos para un fin de semana",
+      "¿Qué lugares recomiendas para viajar en un fin de semana?",
+      "¿Es más caro viajar durante el fin de semana?"
+    ],
+    "responses": [
+      "Los viajes de fin de semana son perfectos para escapadas rápidas. Dependerá del destino y de la disponibilidad de vuelos y hoteles. ¿Te gustaría saber más?"
+    ],
+      "context_filter":"compra"
+  },
+  {
+    "tag": "compra_fecha_semana",
+    "patterns": [
+      "¿Es mejor viajar entre semana?",
+      "Quiero saber si es más económico viajar entre semana",
+      "¿Qué días de la semana son ideales para viajar?",
+      "¿Es posible encontrar ofertas para viajar entre semana?",
+      "Estoy pensando en un viaje de martes a jueves, ¿es buena idea?",
+      "¿Cuáles son las ventajas de viajar entre semana?"
+    ],
+    "responses": [
+      "Viajar entre semana suele ser más económico y menos concurrido. ¿Quieres buscar opciones para viajar en días de semana?"
+    ],
+      "context_filter":"compra"
+  },
+  {
+    "tag": "compra_fecha_temporada",
+    "patterns": [
+      "¿Cuál es la mejor temporada para viajar?",
+      "Quiero viajar en temporada baja, ¿qué me recomiendas?",
+      "¿Cuándo es temporada alta para viajes?",
+      "¿Es mejor viajar en temporada alta o baja?",
+      "¿Qué destinos son buenos en temporada media?",
+      "¿Cómo afecta la temporada al costo de los viajes?"
+    ],
+    "responses": [
+      "Cada temporada tiene sus ventajas. Temporada alta ofrece más actividades, pero temporada baja es más económica. ¿Cuál prefieres?"
+    ],
+      "context_filter":"compra"
+  },
+  {
+    "tag": "compra_personas",
+    "patterns": [
+        "Somos dos personas",
+        "Viajamos tres personas",
+        "Somos una familia de cuatro",
+        "Viajamos en grupo de cinco",
+        "Viajamos en pareja",
+        "Somos un grupo grande",
+        "Viajamos cuatro adultos",
+        "Seremos tres adultos y dos niños",
+        "Viajamos con una persona mayor",
+        "Somos seis personas",
+        "Viaje de pareja",
+        "Hay una persona discapacitada en el grupo",
+        "Vamos a viajar con niños",
+        "Somos siete personas",
+        "Viajamos con una persona con movilidad reducida",
+        "Llevamos una persona mayor",
+        "Viajamos con personas mayores"
+    ],
+    "responses": [
+        "Entendido, son {pattern} personas. ¿Alguna preferencia en habitaciones o alguna necesidad especial?"            
+    ],
+    "context_filter": "compra"
+},
+{
+    "tag": "compra_confirmacion_personas",
+    "patterns": [
+        "Confirmo que somos dos personas",
+        "Viajamos tres adultos",
+        "Somos una pareja",
+        "Seremos cuatro personas",
+        "Viajamos cinco adultos",
+        "Somos seis personas",
+        "Confirmo que viajamos en grupo de siete",
+        "Confirmo que hay niños en el grupo",
+        "Tenemos una persona discapacitada",
+        "Confirmo que viajamos con una persona mayor",
+        "Tenemos una persona con movilidad reducida",
+        "Confirmo que solo somos adultos"
+    ],
+    "responses": [
+        "Entendido, {pattern}. Seguimos con el proceso de compra."
+    ],
+    "context_filter": "compra"
+},
+{
+    "tag": "compra_detalles_personas",
+    "patterns": [
+        "Necesitamos una habitación doble",
+        "Queremos habitaciones conectadas",
+        "Preferimos una habitación familiar",
+        "Necesitamos habitaciones individuales",
+        "Preferimos una suite",
+        "Queremos habitaciones cercanas",
+        "Preferimos asientos juntos",
+        "Queremos cunas para los niños",
+        "Necesitamos habitaciones adaptadas",
+        "Preferimos asientos para personas con discapacidad",
+        "Queremos asistencia para personas con movilidad reducida",
+        "Necesitamos transporte adaptado",
+        "Queremos sillas de ruedas disponibles",
+        "Preferimos habitaciones en planta baja"
+    ],
+    "responses": [
+        "Perfecto, {pattern}. Procedemos a gestionarlo."
+    ],
+    "context_filter": "compra"
+}
+
+
   ]
 }

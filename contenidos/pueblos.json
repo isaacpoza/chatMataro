@@ -1,0 +1,109 @@
+{
+    "pueblos": [
+      {
+        "pueblo": "Arenys de Mar",
+        "descripcion": "Arenys de Mar es un importante puerto pesquero y turístico en el Maresme. Destaca por sus playas, el puerto y su tradición marinera, así como por su historia textil, especialmente en la producción de encajes y bordados."
+      },
+      {
+        "pueblo": "Arenys de Munt",
+        "descripcion": "Arenys de Munt, ubicado en el interior, es famoso por sus rutas de senderismo y su ambiente tranquilo. La población está rodeada de naturaleza y es conocida por la tradición de la Riera, lugar de celebraciones y vida local."
+      },
+      {
+        "pueblo": "Argentona",
+        "descripcion": "Argentona es conocida por su tradición en la cerámica y las fuentes. El museo del Cántaro es uno de sus atractivos, junto con su rica herencia histórica y su paisaje montañoso que la convierte en un destino para el senderismo."
+      },
+      {
+        "pueblo": "Cabrera de Mar",
+        "descripcion": "Cabrera de Mar combina mar y montaña. Con yacimientos arqueológicos romanos, es una ciudad con historia. Su cercanía a la costa y su patrimonio cultural hacen de Cabrera un destino tranquilo y atractivo."
+      },
+      {
+        "pueblo": "Cabrils",
+        "descripcion": "Cabrils es conocido por su gastronomía y entorno natural. Ubicado en una pequeña zona montañosa, es ideal para el turismo rural. Además, es sede de eventos culinarios que atraen a visitantes de toda la comarca."
+      },
+      {
+        "pueblo": "Caldes d'Estrac",
+        "descripcion": "Caldes d'Estrac es un pequeño y encantador pueblo costero con tradición termal. Sus playas, aguas termales y paseos frente al mar lo convierten en un destino popular para el descanso y el bienestar."
+      },
+      {
+        "pueblo": "Calella",
+        "descripcion": "Calella es un destino turístico popular del Maresme, famoso por sus largas playas, su faro y su ambiente animado en verano. Es también un centro cultural con festivales y eventos a lo largo del año."
+      },
+      {
+        "pueblo": "Canet de Mar",
+        "descripcion": "Canet de Mar es una localidad costera conocida por su arquitectura modernista y su patrimonio cultural. El modernismo de Domènech i Montaner y sus playas de arena fina son sus principales atractivos turísticos."
+      },
+      {
+        "pueblo": "Dosrius",
+        "descripcion": "Dosrius es un pueblo del interior, rodeado de montañas y naturaleza. Conocido por su tranquilidad, es un punto de partida ideal para rutas de senderismo y actividades al aire libre. El castillo de Dosrius es uno de sus puntos de interés."
+      },
+      {
+        "pueblo": "Malgrat de Mar",
+        "descripcion": "Malgrat de Mar combina historia, con su casco antiguo y su iglesia neogótica, y turismo de playa. Es un destino vacacional con gran oferta hotelera, siendo uno de los principales atractivos turísticos del Maresme."
+      },
+      {
+        "pueblo": "Mataró",
+        "descripcion": "Mataró es la capital del Maresme y un centro comercial y cultural. Su historia romana, su arquitectura modernista y su puerto deportivo destacan en una ciudad que equilibra tradición y modernidad."
+      },
+      {
+        "pueblo": "Montgat",
+        "descripcion": "Montgat es el municipio más al sur del Maresme y destaca por sus playas y su cercanía a Barcelona. Su ambiente tranquilo y su atractivo costero lo convierten en un lugar residencial y vacacional ideal."
+      },
+      {
+        "pueblo": "Palafolls",
+        "descripcion": "Palafolls es un municipio del interior, conocido por su castillo medieval que ofrece vistas panorámicas. Su cercanía a la Costa Brava y su entorno rural hacen de Palafolls un lugar atractivo para el turismo tranquilo."
+      },
+      {
+        "pueblo": "Pineda de Mar",
+        "descripcion": "Pineda de Mar es un popular destino turístico familiar, con largas playas y un ambiente acogedor. Además de su oferta hotelera, Pineda conserva un interesante patrimonio histórico con edificios como la iglesia de Santa María."
+      },
+      {
+        "pueblo": "Premià de Dalt",
+        "descripcion": "Premià de Dalt es un tranquilo pueblo residencial en las colinas del Maresme. Ofrece vistas panorámicas del mar y un entorno natural para el senderismo. Su casco antiguo conserva la esencia de un típico pueblo catalán."
+      },
+      {
+        "pueblo": "Premià de Mar",
+        "descripcion": "Premià de Mar es una localidad costera con una importante tradición marinera. Sus playas y su cercanía a Barcelona lo hacen un destino atractivo tanto para turistas como para residentes."
+      },
+      {
+        "pueblo": "Sant Andreu de Llavaneres",
+        "descripcion": "Sant Andreu de Llavaneres combina lujo y naturaleza, con urbanizaciones exclusivas y campos de golf. Su puerto deportivo y sus rutas por el parque natural del Montnegre y Corredor son algunos de sus atractivos."
+      },
+      {
+        "pueblo": "Sant Cebrià de Vallalta",
+        "descripcion": "Sant Cebrià de Vallalta es un pueblo del interior rodeado de montañas. Su entorno natural es ideal para actividades al aire libre, y conserva un ambiente rural tranquilo a pocos kilómetros de la costa."
+      },
+      {
+        "pueblo": "Sant Iscle de Vallalta",
+        "descripcion": "Sant Iscle de Vallalta es un pequeño pueblo rural del Maresme, conocido por su paisaje montañoso y su tranquilidad. Ofrece rutas de senderismo y es un destino ideal para aquellos que buscan naturaleza y paz."
+      },
+      {
+        "pueblo": "Sant Pol de Mar",
+        "descripcion": "Sant Pol de Mar es un pintoresco pueblo costero conocido por sus playas de aguas cristalinas y su ambiente mediterráneo. La gastronomía local y su icónica iglesia de Sant Pau son parte de su atractivo."
+      },
+      {
+        "pueblo": "Santa Susanna",
+        "descripcion": "Santa Susanna es un importante destino turístico de sol y playa en el Maresme. Su amplia oferta hotelera y su proximidad a la costa la hacen ideal para el turismo familiar y de descanso."
+      },
+      {
+        "pueblo": "Teià",
+        "descripcion": "Teià es un tranquilo pueblo situado en las colinas del Maresme, conocido por sus masías y su entorno natural. Es un lugar ideal para aquellos que buscan un ambiente relajado, lejos del bullicio de la costa."
+      },
+      {
+        "pueblo": "Tiana",
+        "descripcion": "Tiana es un pequeño y encantador pueblo residencial cerca de Barcelona. Conocido por sus viñedos y bodegas, ofrece un ambiente tranquilo con un entorno natural que invita al paseo y a disfrutar de su gastronomía."
+      },
+      {
+        "pueblo": "Tordera",
+        "descripcion": "Tordera es un pueblo con una fuerte tradición agrícola e industrial. Su mercado semanal y su proximidad al Parque Natural del Montnegre la convierten en un lugar atractivo tanto para residentes como para visitantes."
+      },
+      {
+        "pueblo": "Vilassar de Dalt",
+        "descripcion": "Vilassar de Dalt es un pueblo con un rico patrimonio histórico, destacando su castillo y el teatro de la Massa. Rodeado de naturaleza, ofrece un ambiente residencial tranquilo y está bien comunicado con Barcelona."
+      },
+      {
+        "pueblo": "Vilassar de Mar",
+        "descripcion": "Vilassar de Mar es una localidad costera con una fuerte tradición marinera. Sus playas, su cercanía a Barcelona y su casco histórico con casas de pescadores la hacen un lugar atractivo para vivir y visitar."
+      }
+    ]
+  }
+  

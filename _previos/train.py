@@ -15,7 +15,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
 import random
+import spacy
 
+# Cargar el modelo de spaCy para español
+nlp = spacy.load("es_core_news_md")
 # Crear el lematizador
 lemmatizer = WordNetLemmatizer()
 
@@ -49,8 +52,32 @@ ignore_words = ['?', '!', '.', ',', '¿', '¡']  # Incluimos los signos de inter
 data_file = open('intents.json').read()
 intents = json.loads(data_file)
 
+
+# Función para lematizar y procesar usando SpaCy
+def lematizar_con_spacy(text):
+    # Pasar el texto a través del pipeline de spaCy
+    doc = nlp(text)
+    # Lematizamos y eliminamos stopwords
+    return [token.lemma_ for token in doc if not token.is_stop and not token.is_punct]
+
 # Procesar el archivo intents.json
 for intent in intents['intents']:
+    for pattern in intent['patterns']:
+        # Limpiar y lematizar usando spaCy
+        lematized_words = lematizar_con_spacy(pattern)
+        
+        # Añadir las palabras lematizadas a la lista de palabras
+        words.extend(lematized_words)
+        
+        # Añadir los documentos (pareja de palabras e intención)
+        documents.append((lematized_words, intent['tag']))
+
+        # Añadir la clase (intención) si no está ya en la lista
+        if intent['tag'] not in classes:
+            classes.append(intent['tag'])
+
+# Procesar el archivo intents.json
+'''for intent in intents['intents']:
     for pattern in intent['patterns']:
 
         # Tokenizar cada palabra en el patrón
@@ -73,7 +100,7 @@ for intent in intents['intents']:
 
         # Añadir la clase (intención) si no está ya en la lista
         if intent['tag'] not in classes:
-            classes.append(intent['tag'])
+            classes.append(intent['tag'])'''
 
 # Lematización de las palabras restantes y eliminación de duplicados
 words = [lemmatizer.lemmatize(w.lower(), get_wordnet_pos(w)) for w in words]
