@@ -8,6 +8,23 @@ function toggleChat() {
     }
 }
 
+// Minimizar/Maximizar el chat
+function minimizeChat() {
+    const chatContainer = document.getElementById("chat-container");
+    const chatLog = document.getElementById("chat-log");
+    const chatInputContainer = document.getElementById("chat-input-container");
+
+    if (chatContainer.classList.contains("minimized")) {
+        chatContainer.classList.remove("minimized");
+        chatLog.style.display = "block";
+        chatInputContainer.style.display = "flex";
+    } else {
+        chatContainer.classList.add("minimized");
+        chatLog.style.display = "none";
+        chatInputContainer.style.display = "none";
+    }
+}
+
 // Función para enviar el mensaje
 document.getElementById("send-btn").addEventListener("click", function() {
     var userInput = document.getElementById("user-input").value;

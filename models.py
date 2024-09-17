@@ -381,5 +381,9 @@ class Chat(Base):
     consulta = Column(Text)
     context_set = Column(String(45))
     context_filter = Column(String(45))
+    fecha = Column(DateTime)
+    tag = Column(String(45))
+
+
 
 

@@ -37,8 +37,9 @@ body {
     font-weight: bold;
 }
 
-#close-chat {
+#close-chat, #minimize-chat {
     cursor: pointer;
+    float:right;
 }
 
 /* Log del chat */
@@ -82,6 +83,17 @@ body {
 /* Ocultar el chat */
 #chat-container.hidden {
     transform: translateY(500px);
+    display: none;
+}
+
+/* Estado minimizado del chat */
+#chat-container.minimized {
+    height: 40px;
+    width: 150px;
+}
+
+#chat-container.minimized #chat-log,
+#chat-container.minimized #chat-input-container {
     display: none;
 }
 

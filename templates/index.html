@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <title>Chatbot Flotante</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -10,8 +11,16 @@
     <!-- Contenedor del chat flotante -->
     <div id="chat-container" class="chat-box">
         <div id="chat-header">
-            <span>Chatbot</span>
-            <span id="close-chat" onclick="toggleChat()">X</span>
+            <div class="flex-container">
+                <span>Chatbot</span>
+                <span id="minimize-chat" onclick="minimizeChat()">
+                    <i class="bi bi-dash"></i> <!-- Icono de minimizar -->
+                </span>
+                <span id="close-chat" onclick="toggleChat()">
+                    <i class="bi bi-x"></i> <!-- Icono de cerrar -->
+                </span>
+            </div>
+            
         </div>
         <div id="chat-log"></div>
         <div id="chat-input-container">
